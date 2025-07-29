@@ -23,7 +23,9 @@ export const HeroSection = () => {
             <Button variant="hero" size="lg" className="text-lg">
               Join the Waitlist
             </Button>
-            <Button variant="outline" size="lg" className="text-lg">
+            <Button variant="outline" size="lg" className="text-lg" onClick={() => {
+              document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' });
+            }}>
               How It Works
             </Button>
           </div>

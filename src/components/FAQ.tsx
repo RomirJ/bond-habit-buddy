@@ -23,10 +23,6 @@ const faqs = [
     answer: "Premium subscribers get 'insurance days' and other features to handle life's interruptions fairly. The goal is accountability, not punishment for things outside your control."
   },
   {
-    question: "How much does DailyDrop cost?",
-    answer: "The basic habit tracking and money bonds are free. Premium features like analytics, insurance days, and friend support cost $2.99/week, $9.99/month, or $79.99/year with a 3-day free trial."
-  },
-  {
     question: "When will DailyDrop be available?",
     answer: "We're in private beta now. Join the waitlist to be notified when we launch on the App Store. We'll also send early access invites to waitlist members."
   }

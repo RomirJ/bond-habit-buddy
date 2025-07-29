@@ -4,7 +4,12 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
-export const WaitlistForm = () => {
+interface WaitlistFormProps {
+  size?: 'default' | 'compact';
+  className?: string;
+}
+
+export const WaitlistForm = ({ size = 'default', className = '' }: WaitlistFormProps) => {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,14 +30,16 @@ export const WaitlistForm = () => {
     });
   };
 
+  const isCompact = size === 'compact';
+
   if (isSubmitted) {
     return (
-      <Card className="p-8 text-center bg-success/5 border-success/20 max-w-md mx-auto">
-        <div className="space-y-4">
-          <div className="text-4xl">🎉</div>
-          <h3 className="text-2xl font-bold text-success">You're on the list!</h3>
-          <p className="text-muted-foreground">
-            We'll email you the moment DailyDrop is available for download.
+      <Card className={`p-6 text-center bg-success/5 border-success/20 ${isCompact ? 'max-w-sm' : 'max-w-md'} mx-auto ${className}`}>
+        <div className="space-y-3">
+          <div className="text-3xl">🎉</div>
+          <h3 className={`font-bold text-success ${isCompact ? 'text-lg' : 'text-2xl'}`}>You're on the list!</h3>
+          <p className={`text-muted-foreground ${isCompact ? 'text-sm' : ''}`}>
+            We'll email you when DailyDrop launches.
           </p>
         </div>
       </Card>
@@ -40,28 +47,30 @@ export const WaitlistForm = () => {
   }
 
   return (
-    <Card className="p-8 max-w-md mx-auto bg-[var(--gradient-card)] shadow-[var(--shadow-card)]">
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="text-center space-y-2">
-          <h3 className="text-2xl font-bold">Join the Waitlist</h3>
-          <p className="text-muted-foreground">
-            Be the first to know when DailyDrop launches
-          </p>
-        </div>
+    <Card className={`p-6 ${isCompact ? 'max-w-sm' : 'max-w-md'} mx-auto bg-[var(--gradient-card)] shadow-[var(--shadow-card)] ${className}`}>
+      <form onSubmit={handleSubmit} className={`space-y-${isCompact ? '4' : '6'}`}>
+        {!isCompact && (
+          <div className="text-center space-y-2">
+            <h3 className="text-2xl font-bold">Join the Waitlist</h3>
+            <p className="text-muted-foreground">
+              Be the first to know when DailyDrop launches
+            </p>
+          </div>
+        )}
         
-        <div className="space-y-4">
+        <div className="space-y-3">
           <Input
             type="email"
             placeholder="Enter your email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="text-center text-lg py-3"
+            className={`text-center ${isCompact ? 'py-2' : 'text-lg py-3'}`}
           />
           
           <Button 
             type="submit" 
-            className="w-full text-lg py-3"
+            className={`w-full ${isCompact ? 'py-2' : 'text-lg py-3'}`}
             disabled={isLoading}
           >
             {isLoading ? "Joining..." : "Join Waitlist"}
