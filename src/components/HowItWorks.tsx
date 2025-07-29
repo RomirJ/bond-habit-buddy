@@ -31,21 +31,25 @@ export const HowItWorks = () => {
   return (
     <section id="how-it-works" className="py-20 px-4 bg-muted/30">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">How DailyDrop Works</h2>
-          <p className="text-xl text-muted-foreground">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl font-bold mb-4 animate-fade-in-up">How DailyDrop Works</h2>
+          <p className="text-xl text-muted-foreground animate-fade-in-up" style={{animationDelay: '0.1s'}}>
             Simple, automatic, and effective habit enforcement
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <Card key={index} className="p-6 text-center relative bg-[var(--gradient-card)] shadow-[var(--shadow-card)]">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center font-bold">
+            <Card 
+              key={index} 
+              className="p-6 text-center relative bg-[var(--gradient-card)] shadow-[var(--shadow-card)] animate-scale-in hover:shadow-lg transition-all duration-300 hover:scale-105" 
+              style={{animationDelay: `${index * 0.2}s`}}
+            >
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center font-bold animate-pulse-glow">
                 {step.step}
               </div>
               <div className="pt-4 space-y-4">
-                <div className="text-4xl">{step.icon}</div>
+                <div className="text-4xl animate-float" style={{animationDelay: `${index * 0.5}s`}}>{step.icon}</div>
                 <h3 className="font-semibold text-lg">{step.title}</h3>
                 <p className="text-muted-foreground text-sm">{step.description}</p>
               </div>

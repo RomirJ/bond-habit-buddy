@@ -19,16 +19,20 @@ export const HabitsGrid = () => {
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">12 Powerful Habits to Master</h2>
-          <p className="text-xl text-muted-foreground">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl font-bold mb-4 animate-fade-in-up">12 Powerful Habits to Master</h2>
+          <p className="text-xl text-muted-foreground animate-fade-in-up" style={{animationDelay: '0.1s'}}>
             Each habit is automatically verified through your device sensors and apps
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {habits.map((habit, index) => (
-            <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 bg-[var(--gradient-card)]">
+            <Card 
+              key={index} 
+              className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 bg-[var(--gradient-card)] animate-scale-in" 
+              style={{animationDelay: `${index * 0.1}s`}}
+            >
               <div className="space-y-3">
                 <div className="text-3xl">{habit.icon}</div>
                 <h3 className="font-semibold text-lg">{habit.name}</h3>
