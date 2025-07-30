@@ -42,16 +42,17 @@ export const HowItWorks = () => {
           {steps.map((step, index) => (
             <Card 
               key={index} 
-              className="p-6 text-center relative bg-[var(--gradient-card)] shadow-[var(--shadow-card)] animate-scale-in hover:shadow-lg transition-all duration-300 hover:scale-105" 
+              className="p-6 text-center relative bg-[var(--gradient-card)] shadow-[var(--shadow-card)] animate-scale-in hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 hover:scale-110 group overflow-hidden" 
               style={{animationDelay: `${index * 0.2}s`}}
             >
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center font-bold animate-pulse-glow">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-success/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center font-bold animate-pulse-glow group-hover:animate-glow transition-all duration-300 group-hover:scale-110 relative z-10">
                 {step.step}
               </div>
-              <div className="pt-4 space-y-4">
-                <div className="text-4xl animate-float" style={{animationDelay: `${index * 0.5}s`}}>{step.icon}</div>
-                <h3 className="font-semibold text-lg">{step.title}</h3>
-                <p className="text-muted-foreground text-sm">{step.description}</p>
+              <div className="pt-4 space-y-4 relative z-10">
+                <div className="text-4xl animate-float group-hover:animate-bounce-gentle transition-all duration-300" style={{animationDelay: `${index * 0.5}s`}}>{step.icon}</div>
+                <h3 className="font-semibold text-lg group-hover:text-primary transition-colors duration-300">{step.title}</h3>
+                <p className="text-muted-foreground text-sm group-hover:text-foreground transition-colors duration-300">{step.description}</p>
               </div>
             </Card>
           ))}

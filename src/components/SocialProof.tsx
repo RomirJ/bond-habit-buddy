@@ -1,10 +1,11 @@
 import { Card } from "@/components/ui/card";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 const stats = [
-  { number: "89%", label: "Success Rate", description: "Users who complete habits with money on the line" },
-  { number: "$47", label: "Average Monthly Risk", description: "Most users risk to build lasting habits" },
-  { number: "21", label: "Days", description: "Average time to form a new habit" },
-  { number: "12", label: "Verified Habits", description: "Automatically tracked through your device" }
+  { number: 89, suffix: "%", label: "Success Rate", description: "Users who complete habits with money on the line" },
+  { number: 47, suffix: "", prefix: "$", label: "Average Monthly Risk", description: "Most users risk to build lasting habits" },
+  { number: 21, suffix: "", label: "Days", description: "Average time to form a new habit" },
+  { number: 12, suffix: "", label: "Verified Habits", description: "Automatically tracked through your device" }
 ];
 
 const testimonials = [
@@ -34,13 +35,17 @@ export const SocialProof = () => {
           {stats.map((stat, index) => (
             <Card 
               key={index} 
-              className="p-6 text-center bg-[var(--gradient-card)] shadow-[var(--shadow-card)] animate-scale-in hover:shadow-lg transition-all duration-300 hover:scale-105" 
+              className="p-6 text-center bg-[var(--gradient-card)] shadow-[var(--shadow-card)] animate-scale-in hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 hover:scale-110 group relative overflow-hidden" 
               style={{animationDelay: `${index * 0.1}s`}}
             >
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary animate-fade-in-up" style={{animationDelay: `${index * 0.1 + 0.2}s`}}>{stat.number}</div>
-                <div className="font-semibold animate-fade-in-up" style={{animationDelay: `${index * 0.1 + 0.3}s`}}>{stat.label}</div>
-                <div className="text-sm text-muted-foreground animate-fade-in-up" style={{animationDelay: `${index * 0.1 + 0.4}s`}}>{stat.description}</div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-success/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="space-y-2 relative z-10">
+                <div className="text-3xl font-bold text-primary animate-fade-in-up group-hover:animate-bounce-gentle transition-all duration-300 group-hover:scale-110" style={{animationDelay: `${index * 0.1 + 0.2}s`}}>
+                  {stat.prefix && stat.prefix}
+                  <AnimatedCounter end={stat.number} duration={2000 + index * 200} suffix={stat.suffix} />
+                </div>
+                <div className="font-semibold animate-fade-in-up group-hover:text-primary transition-colors duration-300" style={{animationDelay: `${index * 0.1 + 0.3}s`}}>{stat.label}</div>
+                <div className="text-sm text-muted-foreground animate-fade-in-up group-hover:text-foreground transition-colors duration-300" style={{animationDelay: `${index * 0.1 + 0.4}s`}}>{stat.description}</div>
               </div>
             </Card>
           ))}
@@ -58,15 +63,16 @@ export const SocialProof = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="p-6 bg-[var(--gradient-card)] shadow-[var(--shadow-card)] animate-scale-in hover:shadow-lg transition-all duration-300 hover:scale-105" 
+              className="p-6 bg-[var(--gradient-card)] shadow-[var(--shadow-card)] animate-scale-in hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 hover:scale-105 group relative overflow-hidden" 
               style={{animationDelay: `${index * 0.2}s`}}
             >
-              <div className="space-y-4">
-                <div className="text-primary text-2xl">"</div>
-                <p className="text-muted-foreground italic">{testimonial.quote}</p>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-success/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="space-y-4 relative z-10">
+                <div className="text-primary text-2xl group-hover:animate-bounce-gentle transition-all duration-300">"</div>
+                <p className="text-muted-foreground italic group-hover:text-foreground transition-colors duration-300">{testimonial.quote}</p>
                 <div className="space-y-1">
-                  <div className="font-semibold">{testimonial.author}</div>
-                  <div className="text-sm text-muted-foreground">{testimonial.title}</div>
+                  <div className="font-semibold group-hover:text-primary transition-colors duration-300">{testimonial.author}</div>
+                  <div className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">{testimonial.title}</div>
                 </div>
               </div>
             </Card>

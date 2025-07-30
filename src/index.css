@@ -47,6 +47,20 @@ All colors MUST be HSL.
     --shadow-card: 0 4px 6px -1px hsl(220 14% 16% / 0.1), 0 2px 4px -1px hsl(220 14% 16% / 0.06);
     --shadow-button: 0 10px 25px -5px hsl(151 89% 35% / 0.25);
 
+    /* Enhanced animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-elastic: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Glowing effects */
+    --glow-primary: 0 0 20px hsl(var(--primary) / 0.3);
+    --glow-success: 0 0 20px hsl(var(--success) / 0.3);
+    --glow-intense: 0 0 40px hsl(var(--primary) / 0.6), 0 0 80px hsl(var(--primary) / 0.3);
+    
+    /* Particle effects */
+    --particle-size: 4px;
+    --particle-count: 50;
+
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;

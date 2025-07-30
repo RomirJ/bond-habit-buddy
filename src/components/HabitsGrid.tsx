@@ -30,13 +30,14 @@ export const HabitsGrid = () => {
           {habits.map((habit, index) => (
             <Card 
               key={index} 
-              className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 bg-[var(--gradient-card)] animate-scale-in" 
+              className="p-6 hover:shadow-lg hover:shadow-primary/20 transition-all duration-500 hover:scale-110 bg-[var(--gradient-card)] animate-scale-in group relative overflow-hidden cursor-pointer" 
               style={{animationDelay: `${index * 0.1}s`}}
             >
-              <div className="space-y-3">
-                <div className="text-3xl">{habit.icon}</div>
-                <h3 className="font-semibold text-lg">{habit.name}</h3>
-                <p className="text-muted-foreground text-sm">{habit.description}</p>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-success/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="space-y-3 relative z-10">
+                <div className="text-3xl group-hover:animate-bounce-gentle transition-all duration-300 group-hover:scale-110">{habit.icon}</div>
+                <h3 className="font-semibold text-lg group-hover:text-primary transition-colors duration-300">{habit.name}</h3>
+                <p className="text-muted-foreground text-sm group-hover:text-foreground transition-colors duration-300">{habit.description}</p>
               </div>
             </Card>
           ))}
