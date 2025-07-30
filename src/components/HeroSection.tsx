@@ -9,23 +9,6 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-[var(--gradient-hero)] opacity-5" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
-        {/* Early Waitlist CTA */}
-        <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4 animate-pulse-glow">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-            Early Access Available
-          </div>
-          <h2 className="text-2xl lg:text-3xl font-bold mb-4 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
-            Be First to Transform Your Habits
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-            Join the waitlist and get early access to the only habit app that uses real money bonds to ensure you succeed.
-          </p>
-          <div className="animate-scale-in" style={{animationDelay: '0.3s'}}>
-            <WaitlistForm size="compact" />
-          </div>
-        </div>
-
         {/* Main Hero Content */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
@@ -72,6 +55,23 @@ export const HeroSection = () => {
             <div className="absolute -bottom-6 -right-6 bg-success text-success-foreground px-6 py-3 rounded-full font-semibold shadow-lg animate-float">
               Money Back Guaranteed
             </div>
+          </div>
+        </div>
+
+        {/* Waitlist CTA below hero */}
+        <div className="text-center mt-16 animate-fade-in">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4 animate-pulse-glow">
+            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+            Early Access Available
+          </div>
+          <h2 className="text-2xl lg:text-3xl font-bold mb-4 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+            Be First to Transform Your Habits
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+            Join the waitlist and get early access to the only habit app that uses real money bonds to ensure you succeed.
+          </p>
+          <div className="animate-scale-in" style={{animationDelay: '0.3s'}}>
+            <WaitlistForm size="compact" />
           </div>
         </div>
       </div>
