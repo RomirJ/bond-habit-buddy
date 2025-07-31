@@ -100,7 +100,7 @@ export const WaitlistForm = ({ size = 'default', className = '' }: WaitlistFormP
           
           <Button 
             type="submit" 
-            className={`w-full ${isCompact ? 'py-2' : 'text-lg py-3'} transition-all duration-500 hover:scale-105 hover:shadow-[var(--glow-primary)] relative group overflow-hidden ${isLoading ? 'animate-pulse' : 'animate-glow'}`}
+            className={`w-full ${isCompact ? 'py-2' : 'text-lg py-3'} transition-all duration-500 hover:scale-105 hover:shadow-[var(--glow-primary)] relative group overflow-hidden ${isLoading ? 'animate-glow' : 'animate-glow'}`}
             disabled={isLoading}
           >
             <span className="relative z-10">{isLoading ? "Joining..." : "Join Waitlist"}</span>

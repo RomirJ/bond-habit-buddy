@@ -225,7 +225,7 @@ export default {
 				'pulse-glow': 'pulse-glow 20s ease-in-out infinite',
 				'bounce-gentle': 'bounce-gentle 20s ease-in-out infinite',
 				'shake': 'shake 2s ease-in-out',
-				'glow': 'glow 18s ease-in-out infinite',
+				'glow': 'glow 25s ease-in-out infinite',
 				'particles': 'particles 15s linear infinite',
 				'gradient-shift': 'gradient-shift 25s ease-in-out infinite',
 				'text-shimmer': 'text-shimmer 15s ease-in-out infinite'

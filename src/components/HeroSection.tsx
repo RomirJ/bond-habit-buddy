@@ -67,7 +67,7 @@ export const HeroSection = () => {
         <div className="text-center mt-16 animate-fade-in relative">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent blur-3xl" />
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4 animate-pulse-glow hover:animate-bounce-gentle transition-all duration-300 hover:scale-110 cursor-default relative z-10">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+            <span className="w-2 h-2 bg-primary rounded-full animate-glow"></span>
             Early Access Available
           </div>
           <h2 className="text-2xl lg:text-3xl font-bold mb-4 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
