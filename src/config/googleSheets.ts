@@ -1,6 +1,6 @@
 // Google Apps Script Web App URL
 // You'll need to replace this with your actual Google Apps Script URL
-export const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyGL9lHQbgpvHUTdL2Rh-Tn_ecOud1AwamhP-BfJtcX7ddlhfCMdjkyyCxmVyBiTgdh/exec";
+export const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwxOmwqsXvoFmPSgX1HhJbi9kgmIh0w6p-AdAxZPWnCBlNjkxyqDhF8WIGgEL4UQ4TY/exec";
 
 // Instructions for setting up Google Sheets integration:
 // 1. Create a new Google Sheet for collecting waitlist signups
