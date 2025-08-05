@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { Link } from "react-router-dom";
+import { GOOGLE_SHEETS_WEBHOOK_URL } from "@/config/googleSheets";
 
 interface WaitlistFormProps {
   size?: 'default' | 'compact';
@@ -14,13 +17,46 @@ export const WaitlistForm = ({ size = 'default', className = '' }: WaitlistFormP
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [hasConsent, setHasConsent] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!hasConsent) {
+      toast({
+        title: "Consent Required",
+        description: "Please agree to the Terms of Service and Privacy Policy.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsLoading(true);
     
     try {
+      // Submit to Google Sheets if URL is configured
+      if (GOOGLE_SHEETS_WEBHOOK_URL !== "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+        try {
+          await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email,
+              referralSource: 'website',
+              userAgent: navigator.userAgent,
+              consent: hasConsent
+            })
+          });
+        } catch (sheetsError) {
+          console.log('Google Sheets submission failed, continuing with Supabase');
+        }
+      }
+      
+      // Continue with Supabase submission
       const { error } = await supabase
         .from('waitlist_signups')
         .insert([
@@ -97,6 +133,25 @@ export const WaitlistForm = ({ size = 'default', className = '' }: WaitlistFormP
             required
             className={`text-center ${isCompact ? 'py-2' : 'text-lg py-3'} transition-all duration-300 focus:scale-105`}
           />
+          
+          <div className="flex items-start gap-2">
+            <Checkbox 
+              id="consent" 
+              checked={hasConsent}
+              onCheckedChange={(checked) => setHasConsent(checked as boolean)}
+              className="mt-1"
+            />
+            <label htmlFor="consent" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
+              I agree to the{' '}
+              <Link to="/terms" className="underline hover:text-primary" target="_blank">
+                Terms of Service
+              </Link>{' '}
+              and{' '}
+              <Link to="/privacy" className="underline hover:text-primary" target="_blank">
+                Privacy Policy
+              </Link>
+            </label>
+          </div>
           
           <Button 
             type="submit" 
