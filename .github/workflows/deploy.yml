@@ -33,6 +33,9 @@ jobs:
       - name: Build
         run: npm run build
         
+      - name: Ensure CNAME file exists
+        run: echo "www.dailydrop.info" > ./dist/CNAME
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
