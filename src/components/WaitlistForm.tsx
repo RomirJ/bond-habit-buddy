@@ -113,7 +113,7 @@ export const WaitlistForm = ({ size = 'default', className = '' }: WaitlistFormP
   }
 
   return (
-    <Card className={`p-6 ${isCompact ? 'max-w-sm' : 'max-w-md'} mx-auto bg-[var(--gradient-card)] shadow-[var(--shadow-card)] ${className} animate-scale-in hover:shadow-lg transition-all duration-300 relative z-10`}>
+    <Card id="waitlist-form" className={`p-6 ${isCompact ? 'max-w-sm' : 'max-w-md'} mx-auto bg-[var(--gradient-card)] shadow-[var(--shadow-card)] ${className} animate-scale-in hover:shadow-lg transition-all duration-300 relative z-10`}>
       <form onSubmit={handleSubmit} className={`space-y-${isCompact ? '4' : '6'} relative`}>
         {!isCompact && (
           <div className="text-center space-y-2 animate-fade-in-up">

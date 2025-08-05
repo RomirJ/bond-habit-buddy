@@ -26,7 +26,7 @@ export const HeroSection = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 animate-slide-in-left" style={{animationDelay: '0.4s'}}>
               <Button variant="hero" size="lg" className="text-lg relative group overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[var(--glow-intense)] animate-glow" onClick={() => {
-                document.getElementById('waitlist-section')?.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('waitlist-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
               }}>
                 <span className="relative z-10">Join the Waitlist</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary via-success to-primary bg-[length:200%_auto] animate-gradient-shift opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
