@@ -102,7 +102,7 @@ const Terms = () => {
           <section>
             <h2 className="text-2xl font-semibold mb-4">11. Contact Information</h2>
             <p className="text-muted-foreground">
-              If you have any questions about these Terms, please contact us at support@dailydrop.app
+              If you have any questions about these Terms, please contact us at dailydropteam@gmail.com
             </p>
           </section>
         </div>

@@ -121,8 +121,8 @@ const Privacy = () => {
               If you have any questions about this Privacy Policy, please contact us at:
             </p>
             <p className="text-muted-foreground mt-2">
-              Email: privacy@dailydrop.app<br />
-              Address: [Your Business Address]
+              Email: dailydropteam@gmail.com<br />
+              Address: 415 South St, Waltham, MA
             </p>
           </section>
         </div>

@@ -25,7 +25,9 @@ export const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 animate-slide-in-left" style={{animationDelay: '0.4s'}}>
-              <Button variant="hero" size="lg" className="text-lg relative group overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[var(--glow-intense)] animate-glow">
+              <Button variant="hero" size="lg" className="text-lg relative group overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[var(--glow-intense)] animate-glow" onClick={() => {
+                document.getElementById('waitlist-section')?.scrollIntoView({ behavior: 'smooth' });
+              }}>
                 <span className="relative z-10">Join the Waitlist</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary via-success to-primary bg-[length:200%_auto] animate-gradient-shift opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </Button>
@@ -64,7 +66,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Waitlist CTA below hero */}
-        <div className="text-center mt-16 animate-fade-in relative">
+        <div id="waitlist-section" className="text-center mt-16 animate-fade-in relative">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent blur-3xl" />
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4 animate-pulse-glow hover:animate-bounce-gentle transition-all duration-300 hover:scale-110 cursor-default relative z-10">
             <span className="w-2 h-2 bg-primary rounded-full animate-glow"></span>

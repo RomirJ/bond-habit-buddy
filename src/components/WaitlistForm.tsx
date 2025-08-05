@@ -113,8 +113,8 @@ export const WaitlistForm = ({ size = 'default', className = '' }: WaitlistFormP
   }
 
   return (
-    <Card className={`p-6 ${isCompact ? 'max-w-sm' : 'max-w-md'} mx-auto bg-[var(--gradient-card)] shadow-[var(--shadow-card)] ${className} animate-scale-in hover:shadow-lg transition-all duration-300`}>
-      <form onSubmit={handleSubmit} className={`space-y-${isCompact ? '4' : '6'}`}>
+    <Card className={`p-6 ${isCompact ? 'max-w-sm' : 'max-w-md'} mx-auto bg-[var(--gradient-card)] shadow-[var(--shadow-card)] ${className} animate-scale-in hover:shadow-lg transition-all duration-300 relative z-10`}>
+      <form onSubmit={handleSubmit} className={`space-y-${isCompact ? '4' : '6'} relative`}>
         {!isCompact && (
           <div className="text-center space-y-2 animate-fade-in-up">
             <h3 className="text-2xl font-bold">Join the Waitlist</h3>
@@ -131,7 +131,7 @@ export const WaitlistForm = ({ size = 'default', className = '' }: WaitlistFormP
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className={`text-center ${isCompact ? 'py-2' : 'text-lg py-3'} transition-all duration-300 focus:scale-105`}
+            className={`text-center ${isCompact ? 'py-2' : 'text-lg py-3'} transition-all duration-300 focus:scale-105 relative z-10`}
           />
           
           <div className="flex items-start gap-2">
